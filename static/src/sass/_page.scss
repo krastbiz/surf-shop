@@ -1,0 +1,13 @@
+.page {
+  &-header {
+    padding: 30px 25px;
+    
+    &__title {
+      font-size: 22px;
+      font-weight: 900;
+      font-style: italic;
+
+      color: #707070;
+    }
+  }
+}

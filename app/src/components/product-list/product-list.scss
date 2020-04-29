@@ -1,0 +1,11 @@
+.products {
+  &-menu {
+    background-color: #26d2fc;
+  }
+
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}

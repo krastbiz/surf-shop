@@ -1,0 +1,27 @@
+.app {
+  --padding-header: 30px;
+  --width-toggle: 50px;
+
+  @media (min-width: 1200px) {
+  }
+  
+  @media (min-width: 992px) and (max-width: 1199px) {
+  }
+  
+  @media (min-width: 768px) and (max-width: 991px) {
+  }
+  
+  @media (min-width: 576px) and (max-width: 767px) {
+    width: var(--width);
+  }
+  
+  @media (min-width: 0px) and (max-width: 575px) {
+    width: var(--width);
+    --padding-header: 20px;
+  }
+}
+
+
+
+
+
