@@ -2,8 +2,8 @@ import React from 'react';
 
 import './page.scss';
 
-import ProductList from '../product-list';
-import Pagination from '../pagination';
+import { ProductList } from '../../containers';
+
 
 const ProductPage = () => {
 
@@ -18,8 +18,6 @@ const ProductPage = () => {
         </div>
 
         <ProductList />
-        
-        <Pagination />
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import img from '../images/product-surf.jpg';
 export default class ProductService {
 
   constructor() {
-    this.data = [
+    this.products = [
       {
         id: 1, 
         name: "Single Thruster 2014",
@@ -69,10 +69,20 @@ export default class ProductService {
       },
 
     ];
+
+    this.data = {
+      products: this.products,
+      pagination: {
+        itemsPerPage: 9,
+        currPage: 1,
+        pages: 1,
+        totalItems: this.products.length
+      }
+    }
   }
 
   getProducts() {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       setTimeout(() => {
         return resolve(this.data);
       }, 2000)

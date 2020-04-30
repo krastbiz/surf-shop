@@ -7,7 +7,7 @@ const ProductItem = (props) => {
   console.log ("Product Item props");
   console.log (props);
 
-  const { product } = props;
+  const { product, onAddToCart } = props;
 
   return (
     <div className="products-item">
@@ -17,7 +17,10 @@ const ProductItem = (props) => {
           <div className="products-item__mark-label">{product.markLabel}</div>
         </div>
 
-        <div className="products-item__add-to-cart"></div>
+        <div 
+            className="products-item__add-to-cart" 
+            onClick={() => { onAddToCart(product.id) }}>
+        </div>
 
         <a href="#" className="products-item__img-wrap">
           <img src={product.img} alt="Surf" className="products-item__img" />

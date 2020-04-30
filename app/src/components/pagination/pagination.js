@@ -1,18 +1,15 @@
 import React from 'react';
 
-import { connect } from 'react-redux';
-
 import './pagination.scss';
 
 const Pagination = (props) => {
-  console.log("Pagination");
-  const { loading, pagination: { currPage, itemsPerPage }, totalItems} = props;
 
-  if (loading) {
-    return null;
-  }
+  const { pageInfo: { currPage, itemsPerPage, totalItems } } = props;
 
+  // Calculate total pages
   const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+  // Create required pages
   const pages = [];
   for (let i = 1; i <= totalPages; i++) {
 
@@ -40,16 +37,4 @@ const Pagination = (props) => {
   );
 };
 
-const mapStateToProps = ({loading, pagination, products}) => {
-  return {
-    loading,
-    pagination,
-    totalItems: products.length
-  };
-}
-
-const mapDispatchToProps = {
-  
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Pagination)
+export default Pagination;
