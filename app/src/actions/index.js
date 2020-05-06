@@ -34,10 +34,10 @@ const itemRemovedFromCart = (id) => {
   }
 }
 
-const cartItemCountChanged = (obj) => {
+const allItemsRemovedFromCart = (id) => {
   return {
-    type: actions.CART_ITEM_COUNT_CHANGED,
-    payload: obj
+    type: actions.ALL_ITEMS_REMOVED_FROM_CART,
+    payload: id
   }
 }
 
@@ -49,10 +49,17 @@ const fetchProducts = (productService, dispatch) => () => {
     .catch((error) => dispatch(productsError(error)));
 }
 
+const menuToggled = () => {
+  return {
+    type: actions.MENU_TOGGLED
+  }
+}
+
  
 export {
   fetchProducts,
-  itemAddedToCart as addToCart,
+  itemAddedToCart,
   itemRemovedFromCart,
-  cartItemCountChanged,
+  allItemsRemovedFromCart,
+  menuToggled
 };

@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 
 import { connect } from 'react-redux';
 import { withProductService } from '../components/hoc';
-import { fetchProducts, addToCart } from '../actions';
+import { fetchProducts, itemAddedToCart } from '../actions';
 import compose from '../utils';
 import LoadingSpinner from '../components/loading-spinner';
 
@@ -18,9 +18,9 @@ class ProductListContainer extends Component {
 
   render() {
 
-    const { productList, loading, error, onAddToCart } = this.props;
+    const { productList, productList: { error }, itemAddedToCart } = this.props;
 
-    if (loading) {
+    if (productList.loading) {
       return (
         <LoadingSpinner />
       );
@@ -35,7 +35,7 @@ class ProductListContainer extends Component {
 
     return (
       <Fragment>
-        <ProductList products={productList.products} onAddToCart={onAddToCart}/>
+        <ProductList products={productList.products} onAddToCart={itemAddedToCart}/>
         <Pagination pageInfo={productList.pagination}/>
       </Fragment>
 
@@ -43,18 +43,16 @@ class ProductListContainer extends Component {
   }
 };
 
-const mapStateToProps = ({productList, loading, error}) => {
+const mapStateToProps = ({productList}) => {
   return {
-    productList,
-    loading,
-    error
+    productList
   }
 };
 
 const mapDispatchToProps = (dispatch, { productService }) => {
   return {
     fetchProducts: fetchProducts(productService, dispatch),
-    onAddToCart: (id) => dispatch(addToCart(id))
+    itemAddedToCart: (id) => dispatch(itemAddedToCart(id))
   }
 };
 

@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { itemRemovedFromCart, cartItemCountChanged } from '../../actions';
+import { itemRemovedFromCart, allItemsRemovedFromCart, itemAddedToCart } from '../../actions';
 
 import './cart.scss';
 
 const Cart = (props) => {
 
-  const { cart, onItemRemove, onCountChanged } = props;
+  const { cart, onItemAdded, onItemRemoved, onAllItemsRemoved } = props;
 
   return (
     <div className="cart-content">
@@ -25,7 +25,7 @@ const Cart = (props) => {
 
         <tbody className="cart-table__body">
           {
-            cart.items.map((item) => getCartItem(item, onItemRemove, onCountChanged))
+            cart.items.map((item) => getCartItem(item, onItemAdded, onItemRemoved, onAllItemsRemoved))
           }
         </tbody>
       </table>
@@ -65,7 +65,7 @@ const getCartSummary = (cart) => {
   );
 }
 
-const getCartItem = (item, onItemRemove, onCountChanged) => {
+const getCartItem = (item, onItemAdded, onItemRemoved, onAllItemsRemoved) => {
 
   const { id, img, title, description, price, count, total } = item;
 
@@ -83,13 +83,13 @@ const getCartItem = (item, onItemRemove, onCountChanged) => {
       <td className="cart-item__unit-price">€. {price}</td>
       <td className="cart-item__qty">
         <div className="input-number">
-          <div className="input-number__btn input-number__decr" onClick={() => onCountChanged({id, inc: -1})}>{"<"}</div>
+          <div className="input-number__btn input-number__decr" onClick={() => onItemRemoved(id)}>{"<"}</div>
           <input type="number" name="" value={count} readOnly/>
-          <div className="input-number__btn input-number__incr" onClick={() => onCountChanged({id, inc: 1})}>{">"}</div>
+          <div className="input-number__btn input-number__incr" onClick={() => onItemAdded(id)}>{">"}</div>
         </div>
       </td>
       <td className="cart-item__subtotal">€. {total}</td>
-      <td className="cart-item__remove" onClick={() => onItemRemove(id)}>
+      <td className="cart-item__remove" onClick={() => onAllItemsRemoved(id)}>
         <div className="remove"></div>
       </td>
     </tr>
@@ -102,11 +102,10 @@ const mapStateToProps = ({cart}) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onItemRemove: (id) => dispatch(itemRemovedFromCart(id)),
-    onCountChanged: (obj) => dispatch(cartItemCountChanged(obj))
-  }
+const mapDispatchToProps = {
+  onItemAdded: itemAddedToCart,
+  onItemRemoved: itemRemovedFromCart,
+  onAllItemsRemoved: allItemsRemovedFromCart
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);

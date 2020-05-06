@@ -1,22 +1,19 @@
 import React, { Component } from 'react';
 
 import './aside.scss';
+import { connect } from 'react-redux';
+
+import { menuToggled } from '../../actions';
 
 class Aside extends Component {
 
-
-  onToggleClick() {
-    
-    console.log("On toggle click");
-    console.log(this.props);
-  }
-
   render() {
 
+    const { onMenuToggled, menu } = this.props;
     return (
-      <div class="aside">
+      <div class={`aside ${menu.active ? "aside_active" : ""}`}>
 
-        <div class="aside-toggle" onClick={this.onToggleClick}>
+        <div class={`aside-toggle ${menu.active ? "aside-toggle_active" : ""}`} onClick={() => onMenuToggled()}>
           <span></span>
           <span></span>
           <span></span>
@@ -75,4 +72,15 @@ class Aside extends Component {
   }
 }
 
-export default Aside;
+const mapStateToProps = ({ menu }) => {
+  return {
+    menu
+  }
+}
+
+const mapDispatchToProps = {
+  onMenuToggled: menuToggled
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Aside);
