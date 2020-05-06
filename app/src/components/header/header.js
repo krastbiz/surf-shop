@@ -10,7 +10,7 @@ import iconYoutube from '../../images/icons/icon-youtube.png';
 import iconPinterest from '../../images/icons/icon-pinterest.png';
 
 // COMPONENTS
-import Cart from '../cart';
+import Cart from '../cart-nav';
 
 class Header extends Component {
 

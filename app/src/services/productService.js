@@ -1,73 +1,19 @@
 
 import img from '../images/product-surf.jpg';
+import { Product } from '../models';
 
 export default class ProductService {
 
   constructor() {
     this.products = [
-      {
-        id: 1, 
-        name: "Single Thruster 2014",
-        price: 1270.15,
-        discount: 0.15,
-        img: img,
-        markLabel: "New"
-      },
-      {
-        id: 2, 
-        name: "Single Thruster 2014",
-        price: 1270.15,
-        discount: 0.15,
-        img: img,
-        markLabel: "Hot"
-      },
-      {
-        id: 3, 
-        name: "Single Thruster 2014",
-        price: 1270.15,
-        discount: 0.15,
-        img: img,
-        markLabel: ""
-      },
-      {
-        id: 4, 
-        name: "Single Thruster 2014",
-        price: 1450,
-        discount: 0.4,
-        img: img
-      },
-      {
-        id: 5, 
-        name: "Single Thruster 2014",
-        price: 900,
-        discount: 0.05,
-        img: img
-      },
-      {
-        id: 6, 
-        name: "Single Thruster 2014",
-        price: 1500,
-        discount: 0.3,
-        img: img,
-        markLabel: null
-      },
-      {
-        id: 7, 
-        name: "Single Thruster 2014",
-        price: 1000,
-        discount: 0.2,
-        img: img,
-        markLabel: "Hot"
-      },
-      {
-        id: 8, 
-        name: "Single Thruster 2014",
-        price: 700,
-        discount: 0.1,
-        img: img,
-        markLabel: "New"
-      },
-
+      new Product(1, "Single Thruster 2014", 1270, 0.15, img, "New", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."),
+      new Product(2, "Single Thruster 2014", 1000, 0.25, img, "New", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."),
+      new Product(3, "Single Thruster 2014", 2000, 0.3, img, "New", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."),
+      new Product(4, "Single Thruster 2014", 800, 0.05, img, "New", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."),
+      new Product(5, "Single Thruster 2014", 1600, 0.03, img, "New", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."),
+      new Product(6, "Single Thruster 2014", 200, 0.15, img, "New", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."),
+      new Product(7, "Single Thruster 2014", 400, 0.15, img, "New", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."),
+      new Product(8, "Single Thruster 2014", 350, 0, img, "New", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."),
     ];
 
     this.data = {

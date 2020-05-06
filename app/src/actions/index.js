@@ -27,6 +27,20 @@ const itemAddedToCart = (id) => {
   }
 }
 
+const itemRemovedFromCart = (id) => {
+  return {
+    type: actions.ITEM_REMOVED_FROM_CART,
+    payload: id
+  }
+}
+
+const cartItemCountChanged = (obj) => {
+  return {
+    type: actions.CART_ITEM_COUNT_CHANGED,
+    payload: obj
+  }
+}
+
 const fetchProducts = (productService, dispatch) => () => {
 
   dispatch(productsRequested());
@@ -38,5 +52,7 @@ const fetchProducts = (productService, dispatch) => () => {
  
 export {
   fetchProducts,
-  itemAddedToCart as addToCart
+  itemAddedToCart as addToCart,
+  itemRemovedFromCart,
+  cartItemCountChanged,
 };

@@ -33,10 +33,10 @@ const ProductItem = (props) => {
 
           <div className="products-item__prices">
             <div className="products-item__price">
-              {product.price - (product.price * product.discount)}
+              €.{product.getPrice()}
             </div>
             <div className="products-item__price products-item__price_old">
-              {product.price}
+              €.{product.price}
             </div>
           </div>
         </div>

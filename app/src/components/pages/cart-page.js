@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './page.scss';
+import Cart from '../cart';
 
 const CartPage = () => {
   return (
@@ -9,10 +10,12 @@ const CartPage = () => {
 
         <div className="page-header">
           <div className="page-header__title">
-            Cart
+            Shopping Cart
           </div>
         </div>
 
+        
+        <Cart />
 
       </div>
     </div>
